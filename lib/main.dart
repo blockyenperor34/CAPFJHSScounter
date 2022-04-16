@@ -112,12 +112,16 @@ class _MyHomePageState extends State<MyHomePage> {
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text(
+            /*const Text(
               'w(ﾟДﾟ)w \n   剩下:',
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 30,
               ),
+            ), */
+            Expanded(
+              flex: 0,
+              child: MyStatefulWidget(),
             ),
             Text(
               '$_counter' + '天',
@@ -136,6 +140,42 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Text('Refresh'),
             ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class MyStatefulWidget extends StatefulWidget {
+  const MyStatefulWidget({Key? key}) : super(key: key);
+
+  @override
+  State<MyStatefulWidget> createState() => _MyStatefulWidgetState();
+}
+
+class _MyStatefulWidgetState extends State<MyStatefulWidget>
+    with SingleTickerProviderStateMixin {
+  late final AnimationController _controller = AnimationController(
+    duration: const Duration(milliseconds: 5),
+    vsync: this,
+  )..repeat(reverse: true);
+  late final Animation<Offset> _offsetAnimation = Tween<Offset>(
+    begin: Offset.zero,
+    end: const Offset(0.5, 0.0),
+  ).animate(CurvedAnimation(
+    parent: _controller,
+    curve: Curves.elasticIn,
+  ));
+
+  @override
+  Widget build(BuildContext context) {
+    return SlideTransition(
+      position: _offsetAnimation,
+      child: Text(
+        'w(ﾟДﾟ)w \n   剩下:',
+        style: TextStyle(
+          color: Colors.white,
+          fontSize: 30,
         ),
       ),
     );
