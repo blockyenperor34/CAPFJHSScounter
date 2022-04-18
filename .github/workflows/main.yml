@@ -42,7 +42,7 @@ jobs:
       - name: Build Android apk
         run: |
           flutter pub get
-          flutter test
           flutter build apk
           flutter build appbundle
+
 
