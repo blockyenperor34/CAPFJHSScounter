@@ -161,7 +161,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget>
   )..repeat(reverse: true);
   late final Animation<Offset> _offsetAnimation = Tween<Offset>(
     begin: Offset.zero,
-    end: const Offset(0.5, 0.0),
+    end: const Offset(0.9, 0.2),
   ).animate(CurvedAnimation(
     parent: _controller,
     curve: Curves.elasticIn,
