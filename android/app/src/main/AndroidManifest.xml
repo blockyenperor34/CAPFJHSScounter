@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.count">
+    package="dev.blocky34.count">
    <application
         android:label="count"
         android:icon="@mipmap/launcher_icon">
